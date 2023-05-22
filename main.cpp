@@ -4,11 +4,28 @@
 #include "variables.h"
 #include "header.h"
 
+
+/*
+
+open external files:
+
+cin name of file
+open file with infile (filetocompile = "filename")
+start compiling
+command to end of file (dunno maybe <endoffile>)
+replace filename with "main.mol" goto ifstreaminfile:
+
+*/
+
 using namespace std;
 
 int main() {
 
+    string filetocompile = "main.mol";
+
     cout << endl << endl << endl;
+    cout << "execution of the file will start on file 'main.mol'" << endl;
+    cout << endl << endl;
 
     string filename;
 
@@ -30,9 +47,9 @@ int main() {
 
 
 
+ifstreaminfile:
 
-
-    ifstream infile("main.mol");
+    ifstream infile(filetocompile);
     char ch;
 
 start:
@@ -87,19 +104,19 @@ start:
             goto start;
         }
 
-        //ง
-        if (ch == 'ง') {
+        //ยง
+        if (ch == 'ยง') {
 
             infile.get(ch);
-            if (ch == 'ง') {    //งง start of comments
+            if (ch == 'ยง') {    //ยงยง start of comments
 
                 infile.get(ch);
-                while (ch != 'ง') {
+                while (ch != 'ยง') {
 
                     infile.get(ch);
 
                 }
-                while (ch != 'ง') {
+                while (ch != 'ยง') {
 
                     infile.get(ch);
 
